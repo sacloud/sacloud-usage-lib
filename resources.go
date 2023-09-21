@@ -83,8 +83,13 @@ type Resources struct {
 
 func (rs *Resources) Metrics() map[string]interface{} {
 	var fs sort.Float64Slice
-	routers := make([]interface{}, 0)
+	resources := make([]interface{}, 0)
 	total := float64(0)
+	label := rs.Label
+	if label == "" {
+		label = "resources"
+	}
+
 	for _, t := range rs.Resources {
 		metrics := t.toMetrics()
 		avg := metrics["avg"].(float64)
@@ -92,7 +97,7 @@ func (rs *Resources) Metrics() map[string]interface{} {
 		fs = append(fs, avg)
 		total += avg
 
-		routers = append(routers, metrics)
+		resources = append(resources, metrics)
 	}
 
 	if len(fs) == 0 {
@@ -105,7 +110,7 @@ func (rs *Resources) Metrics() map[string]interface{} {
 				result[fmt.Sprintf("%spt", p.str)] = float64(0)
 			}
 		}
-		result["routers"] = routers
+		result[label] = resources
 		return result
 	}
 
@@ -120,7 +125,7 @@ func (rs *Resources) Metrics() map[string]interface{} {
 			result[fmt.Sprintf("%spt", p.str)] = fs[round(fl*(p.float))]
 		}
 	}
-	result["routers"] = routers
+	result[label] = resources
 	return result
 }
 
