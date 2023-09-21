@@ -42,13 +42,13 @@ func TestResources_Metrics(t *testing.T) {
 		{
 			name: "empty",
 			args: args{
-				resources: &Resources{Label: "routers"},
+				resources: &Resources{Label: "label"},
 			},
 			want: map[string]interface{}{
-				"avg":     0.,
-				"max":     0.,
-				"min":     0.,
-				"routers": []interface{}{},
+				"avg":   0.,
+				"max":   0.,
+				"min":   0.,
+				"label": []interface{}{},
 			},
 		},
 		{
