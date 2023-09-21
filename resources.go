@@ -24,6 +24,7 @@ import (
 	"log"
 	"math"
 	"sort"
+	"strings"
 	"time"
 
 	"github.com/sacloud/iaas-api-go/types"
@@ -55,7 +56,14 @@ func (r *Resource) toMetrics() map[string]interface{} {
 		}
 		monitors = append(monitors, m)
 		sum += p.Value
-		log.Printf("%s zone:%s %s:%f time:%s", r.Name, r.Zone, r.Label, p.Value, p.Time.String())
+
+		info := strings.Builder{}
+		for k, v := range r.AdditionalInfo {
+			info.WriteString(fmt.Sprintf("%s:%v ", k, v))
+		}
+		strInfo := strings.TrimSpace(info.String())
+
+		log.Printf("%s zone:%s %s %s:%f time:%s", r.Name, r.Zone, strInfo, r.Label, p.Value, p.Time.String())
 	}
 
 	avg := sum / float64(len(r.Monitors))
