@@ -29,12 +29,13 @@ import (
 	"github.com/itchyny/gojq"
 )
 
-func PrintVersion(version string) {
-	fmt.Printf(`%s %s
+func PrintVersion(appVersion string) {
+	fmt.Printf(`%s %s(sacloud-usage-lib: %s)
 Compiler: %s %s
 `,
 		os.Args[0],
-		version,
+		appVersion,
+		Version,
 		runtime.Compiler,
 		runtime.Version())
 }
