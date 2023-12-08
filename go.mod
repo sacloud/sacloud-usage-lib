@@ -3,7 +3,7 @@ module github.com/sacloud/sacloud-usage-lib
 go 1.21
 
 require (
-	github.com/itchyny/gojq v0.12.13
+	github.com/itchyny/gojq v0.12.14
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
 	github.com/sacloud/iaas-api-go v1.11.1
@@ -27,6 +27,6 @@ require (
 	github.com/sacloud/packages-go v0.0.9 // indirect
 	go.uber.org/ratelimit v0.2.0 // indirect
 	golang.org/x/crypto v0.9.0 // indirect
-	golang.org/x/sys v0.8.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
