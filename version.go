@@ -15,4 +15,4 @@
 package usage
 
 // Version app version
-var Version = "0.0.4"
+var Version = "0.0.5"
