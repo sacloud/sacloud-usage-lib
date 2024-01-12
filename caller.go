@@ -23,8 +23,10 @@ import (
 	"fmt"
 	"runtime"
 
+	"github.com/sacloud/go-otelsetup"
 	"github.com/sacloud/iaas-api-go"
 	"github.com/sacloud/iaas-api-go/helper/api"
+	sacloudotel "github.com/sacloud/iaas-api-go/trace/otel"
 )
 
 func SacloudAPICaller(productName, version string) (iaas.APICaller, error) {
@@ -46,6 +48,10 @@ func SacloudAPICaller(productName, version string) (iaas.APICaller, error) {
 			productName,
 			iaas.DefaultUserAgent,
 		)
+	}
+
+	if otelsetup.Enabled() {
+		sacloudotel.Initialize()
 	}
 
 	return api.NewCallerWithOptions(options), nil
