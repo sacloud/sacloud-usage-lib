@@ -52,6 +52,37 @@ func TestResources_Metrics(t *testing.T) {
 			},
 		},
 		{
+			name: "single resource - no value",
+			args: args{
+				resources: &Resources{
+					Label: "routers",
+					Resources: []*Resource{
+						{
+							ID:             1,
+							Name:           "test1",
+							Zone:           "is1a",
+							Monitors:       nil,
+							Label:          "traffic",
+							AdditionalInfo: nil,
+						},
+					},
+				},
+			},
+			want: map[string]interface{}{
+				"avg": 0.,
+				"max": 0.,
+				"min": 0.,
+				"routers": []interface{}{
+					map[string]interface{}{
+						"name":     "test1",
+						"zone":     "is1a",
+						"avg":      0.,
+						"monitors": []interface{}{},
+					},
+				},
+			},
+		},
+		{
 			name: "single resource - single value",
 			args: args{
 				resources: &Resources{

@@ -66,7 +66,10 @@ func (r *Resource) toMetrics() map[string]interface{} {
 		log.Printf("%s zone:%s %s %s:%f time:%s", r.Name, r.Zone, strInfo, r.Label, p.Value, p.Time.String())
 	}
 
-	avg := sum / float64(len(r.Monitors))
+	avg := 0.
+	if len(r.Monitors) > 0 {
+		avg = sum / float64(len(r.Monitors))
+	}
 	log.Printf("%s average_%s:%f", r.Name, r.Label, avg)
 
 	metrics := map[string]interface{}{
