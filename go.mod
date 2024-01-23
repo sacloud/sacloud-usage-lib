@@ -6,7 +6,7 @@ require (
 	github.com/itchyny/gojq v0.12.14
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
-	github.com/sacloud/go-otelsetup v0.0.4
+	github.com/sacloud/go-otelsetup v0.0.5
 	github.com/sacloud/iaas-api-go v1.11.2
 	github.com/sacloud/iaas-api-go/trace/otel v0.0.0-20231214054807-49acd3db5e5d
 	github.com/stretchr/testify v1.8.4
