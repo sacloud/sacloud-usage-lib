@@ -1,6 +1,6 @@
 #====================
 AUTHOR         ?= The sacloud/sacloud-usage-lib Authors
-COPYRIGHT_YEAR ?= 2023
+COPYRIGHT_YEAR ?= 2023-2025
 
 GO_FILES       ?= $(shell find . -name '*.go')
 

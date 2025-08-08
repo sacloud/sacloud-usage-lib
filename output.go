@@ -43,7 +43,7 @@ Compiler: %s %s
 func OutputMetrics(w io.Writer, metrics map[string]interface{}, query string) error {
 	if query == "" {
 		v, _ := json.Marshal(metrics)
-		fmt.Fprintln(w, string(v))
+		fmt.Fprintln(w, string(v)) //nolint:errcheck
 		return nil
 	}
 
@@ -64,7 +64,7 @@ func OutputMetrics(w io.Writer, metrics map[string]interface{}, query string) er
 			return fmt.Errorf("%s not found in result", query)
 		}
 		j2, _ := json.Marshal(v)
-		fmt.Fprintln(w, string(j2))
+		fmt.Fprintln(w, string(j2)) //nolint:errcheck
 	}
 
 	return nil
