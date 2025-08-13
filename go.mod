@@ -4,7 +4,7 @@ go 1.23.0
 
 require (
 	github.com/itchyny/gojq v0.12.17
-	github.com/jessevdk/go-flags v1.5.0
+	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
 	github.com/sacloud/go-otelsetup v0.5.0
 	github.com/sacloud/iaas-api-go v1.11.2
