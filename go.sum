@@ -63,8 +63,8 @@ github.com/sacloud/go-otelsetup v0.5.0 h1:L6h65D7i3XAoUdkRAYO7fpjF64gASKt55n0GG5
 github.com/sacloud/go-otelsetup v0.5.0/go.mod h1:e9Zt+rFgm0BwG9kVH+QKyfnS9Uxj8mBn4Z8UXkyDWTw=
 github.com/sacloud/iaas-api-go v1.17.0 h1:Ya5Z5NFYfc5g6/ZmEw3k0bVuc1Qygb+xapL5OUM2fz4=
 github.com/sacloud/iaas-api-go v1.17.0/go.mod h1:xH+8hMIEpEMZq2DdKGqiLJcB60peZOg2THVZCG09LLs=
-github.com/sacloud/iaas-api-go/trace/otel v0.0.0-20231214054807-49acd3db5e5d h1:lpJQkX0o6bw19i0XaURE1kPwwysfVmpZOdF0qK6fht4=
-github.com/sacloud/iaas-api-go/trace/otel v0.0.0-20231214054807-49acd3db5e5d/go.mod h1:htui6WfoaMpynNKIQwLwmiAsTUd7shWhmBBO7bfuzf8=
+github.com/sacloud/iaas-api-go/trace/otel v0.0.0-20250812024436-289fa1cfd0f4 h1:rBb5UlJq1IohWUQBS3Wg9yoCZJDN5DwVkHri3Vw2Ufs=
+github.com/sacloud/iaas-api-go/trace/otel v0.0.0-20250812024436-289fa1cfd0f4/go.mod h1:EqHKfi6MRlaCi1fOHGZYEFuvK3umnOB9xyIKqx+cgwo=
 github.com/sacloud/packages-go v0.0.11 h1:hrRWLmfPM9w7GBs6xb5/ue6pEMl8t1UuDKyR/KfteHo=
 github.com/sacloud/packages-go v0.0.11/go.mod h1:XNF5MCTWcHo9NiqWnYctVbASSSZR3ZOmmQORIzcurJ8=
 github.com/stretchr/testify v1.10.0 h1:Xv5erBjTwe/5IxqUQTdXv5kgmIvbHo3QQyRwhJsOfJA=
