@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.1.1](https://github.com/sacloud/sacloud-usage-lib/compare/v0.1.0...v0.1.1) - 2025-08-13
+- textlint: ignore CHANGELOG.md by @yamamoto-febc in https://github.com/sacloud/sacloud-usage-lib/pull/24
+
 ## [v0.1.0](https://github.com/sacloud/sacloud-usage-lib/compare/v0.0.7...v0.1.0) - 2025-08-13
 - golangci-lint v2 by @yamamoto-febc in https://github.com/sacloud/sacloud-usage-lib/pull/16
 - goreleaser -> tagpr by @yamamoto-febc in https://github.com/sacloud/sacloud-usage-lib/pull/17
