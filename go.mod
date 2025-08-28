@@ -9,7 +9,7 @@ require (
 	github.com/sacloud/go-otelsetup v0.5.0
 	github.com/sacloud/iaas-api-go v1.17.0
 	github.com/sacloud/iaas-api-go/trace/otel v0.0.0-20250812024436-289fa1cfd0f4
-	github.com/stretchr/testify v1.10.0
+	github.com/stretchr/testify v1.11.1
 )
 
 require (
