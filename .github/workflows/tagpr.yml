@@ -12,7 +12,7 @@ jobs:
       pull-requests: write
       issues: write
     steps:
-    - uses: actions/checkout@v5
-    - uses: Songmu/tagpr@v1
+    - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+    - uses: Songmu/tagpr@d1b8138b7a31075141b6cd64103de9485ced7ac9 # v1.20.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
