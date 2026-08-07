@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.2.0](https://github.com/sacloud/sacloud-usage-lib/compare/v0.1.0...v0.2.0) - 2026-08-07
+
+- textlint: ignore CHANGELOG.md by @yamamoto-febc in https://github.com/sacloud/sacloud-usage-lib/pull/24
+- refactor: migrate to sacloud-sdk-go and remove api-client-go dependency by @yamamoto-febc in https://github.com/sacloud/sacloud-usage-lib/pull/46
+- pin actions by @tokuhirom in https://github.com/sacloud/sacloud-usage-lib/pull/47
+- ci: bump actions/checkout from 5.1.0 to 7.0.1 by @dependabot[bot] in https://github.com/sacloud/sacloud-usage-lib/pull/38
+- ci: bump actions/setup-go from 5.6.0 to 7.0.0 by @dependabot[bot] in https://github.com/sacloud/sacloud-usage-lib/pull/28
+- go: bump github.com/itchyny/gojq from 0.12.17 to 0.12.19 by @dependabot[bot] in https://github.com/sacloud/sacloud-usage-lib/pull/39
+
 ## [v0.1.0](https://github.com/sacloud/sacloud-usage-lib/compare/v0.0.7...v0.1.0) - 2025-08-13
 - golangci-lint v2 by @yamamoto-febc in https://github.com/sacloud/sacloud-usage-lib/pull/16
 - goreleaser -> tagpr by @yamamoto-febc in https://github.com/sacloud/sacloud-usage-lib/pull/17
