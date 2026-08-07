@@ -21,38 +21,60 @@ package usage
 
 import (
 	"fmt"
+	"os"
 	"runtime"
 
-	"github.com/sacloud/go-otelsetup"
-	"github.com/sacloud/iaas-api-go"
-	"github.com/sacloud/iaas-api-go/helper/api"
-	sacloudotel "github.com/sacloud/iaas-api-go/trace/otel"
+	"github.com/sacloud/sacloud-sdk-go/api/iaas"
+	"github.com/sacloud/sacloud-sdk-go/common/packages/envvar"
+	"github.com/sacloud/sacloud-sdk-go/common/saclient"
 )
 
 func SacloudAPICaller(productName, version string) (iaas.APICaller, error) {
-	options := api.OptionsFromEnv()
-	if options.AccessToken == "" {
+	accessToken := envvar.StringFromEnvMulti([]string{"SAKURA_ACCESS_TOKEN", "SAKURACLOUD_ACCESS_TOKEN"}, "")
+	if accessToken == "" {
 		return nil, fmt.Errorf("environment variable %q is required", "SAKURACLOUD_ACCESS_TOKEN")
 	}
-	if options.AccessTokenSecret == "" {
+	accessTokenSecret := envvar.StringFromEnvMulti([]string{"SAKURA_ACCESS_TOKEN_SECRET", "SAKURACLOUD_ACCESS_TOKEN_SECRET"}, "")
+	if accessTokenSecret == "" {
 		return nil, fmt.Errorf("environment variable %q is required", "SAKURACLOUD_ACCESS_TOKEN_SECRET")
 	}
 
-	if options.UserAgent == "" {
-		options.UserAgent = fmt.Sprintf(
-			"sacloud/%s/v%s (%s/%s; +https://github.com/sacloud/%s) %s",
-			productName,
-			version,
-			runtime.GOOS,
-			runtime.GOARCH,
-			productName,
-			iaas.DefaultUserAgent,
-		)
+	userAgent := fmt.Sprintf(
+		"sacloud/%s/v%s (%s/%s; +https://github.com/sacloud/%s) %s",
+		productName,
+		version,
+		runtime.GOOS,
+		runtime.GOARCH,
+		productName,
+		iaas.DefaultUserAgent,
+	)
+
+	var client saclient.Client
+	if err := client.SetEnviron(os.Environ()); err != nil {
+		return nil, err
+	}
+	if err := client.SetWith(
+		saclient.WithoutProfile(),
+		saclient.WithUserAgent(userAgent),
+	); err != nil {
+		return nil, err
+	}
+	if err := client.Populate(); err != nil {
+		return nil, err
 	}
 
-	if otelsetup.Enabled() {
-		sacloudotel.Initialize()
+	cfg, err := client.EndpointConfig()
+	if err != nil {
+		return nil, err
 	}
-
-	return api.NewCallerWithOptions(options), nil
+	if cfg.APIRootURL != "" {
+		iaas.SakuraCloudAPIRoot = cfg.APIRootURL
+	}
+	if len(cfg.Zones) > 0 {
+		iaas.SakuraCloudZones = cfg.Zones
+	}
+	if cfg.DefaultZone != "" {
+		iaas.APIDefaultZone = cfg.DefaultZone
+	}
+	return iaas.NewClientFromSaclient(&client), nil
 }
