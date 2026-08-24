@@ -6,7 +6,7 @@ require (
 	github.com/itchyny/gojq v0.12.19
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
-	github.com/sacloud/sacloud-sdk-go v0.0.2-0.20260806010410-4c09d40db2d9
+	github.com/sacloud/sacloud-sdk-go v0.1.0
 	github.com/stretchr/testify v1.11.1
 )
 
